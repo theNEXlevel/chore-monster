@@ -1,0 +1,20 @@
+.github/workflows/publish.yaml
+  s_53a474ca97b154::t_2542e8188d5178 51-75,77-99
+  s_53a474ca97b154::t_73019db6add58a 76
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "304baae744a150b07b033b9f5520b4c0144f2c4c",
+  "prompts": {},
+  "sessions": {
+    "s_53a474ca97b154": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ee58e164-f392-4395-a68b-50db8a91b137",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Justin McLellan <justin.mclellan99@gmail.com>"
+    }
+  }
+}
