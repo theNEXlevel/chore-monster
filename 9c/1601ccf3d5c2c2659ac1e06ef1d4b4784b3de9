@@ -1,0 +1,30 @@
+README.md
+  s_13b2100ce19d9f::t_d613b1836c6c34 119-120
+  s_13b2100ce19d9f::t_1d5d17bc2949ab 154-172,174-185
+  s_13b2100ce19d9f::t_3dfe7b0fda6796 173
+example.env
+  s_13b2100ce19d9f::t_03ec9e43312014 22-26
+docker-compose.yml
+  s_13b2100ce19d9f::t_40677705f46732 131-133
+  s_13b2100ce19d9f::t_e69801cfe6aec0 22-32,34-78,90-91
+  s_13b2100ce19d9f::t_ac0dbaadc14697 33
+.github/workflows/publish.yaml
+  s_13b2100ce19d9f::t_24743682735260 81-101
+  s_13b2100ce19d9f::t_24b320b9a17a9b 72
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "9c1601ccf3d5c2c2659ac1e06ef1d4b4784b3de9",
+  "prompts": {},
+  "sessions": {
+    "s_13b2100ce19d9f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "95a8fe04-8693-4ee7-9b4a-5c33b2834bb7",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Justin McLellan <justin.mclellan99@gmail.com>"
+    }
+  }
+}
