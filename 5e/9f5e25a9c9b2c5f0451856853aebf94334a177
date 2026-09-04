@@ -1,0 +1,76 @@
+src/app/users/UserActionsCell.tsx
+  s_4836705a541c57::t_d365a7ee818aa0 67-70
+  s_4836705a541c57::t_0b55e5b41edde0 10-18,25-26,28,38-39,41,65-66,71-83
+src/lib/auth.ts
+  s_4836705a541c57::t_41976ac04eb0fa 88
+  s_4836705a541c57::t_be5e89af728a2a 7-9,55-66,73-78
+src/app/users/users-grid-columns.tsx
+  s_4836705a541c57::t_d782d308a5483e 57-86
+  s_4836705a541c57::t_8e5ca9d46b74f3 30-31,33,40-41,43,153-154,156
+prisma/schema/user.prisma
+  s_4836705a541c57::t_be5e89af728a2a 8-10
+src/app/users/BanUserDialog.tsx
+  s_4836705a541c57::t_b7c869fbf19a07 1-13,15-36,38-48,52-79,81-83,95-118
+  s_4836705a541c57::t_e49c9455d75c20 84-91,93
+  s_4836705a541c57::t_9c396d8219413e 92,94
+  s_4836705a541c57::t_82fe8bf73d3e84 37,49-51
+  s_4836705a541c57::t_a9c1014fbac86a 14,80
+src/lib/auth-client.ts
+  s_4836705a541c57::t_be5e89af728a2a 4,6,9-18
+src/app/users/users-grid.tsx
+  s_4836705a541c57::t_56cc2330c1ed34 21,23,43-45
+  s_4836705a541c57::t_82decd757cb16f 136-162,164-201,216-217,219
+  s_4836705a541c57::t_d365a7ee818aa0 163
+  s_4836705a541c57::t_ad6007734a0126 553,555-563
+  s_4836705a541c57::t_a9c1014fbac86a 554
+src/app/api/users/route.ts
+  s_4836705a541c57::t_ad6007734a0126 77-79
+src/lib/prisma.ts
+  s_4836705a541c57::t_07227df2fefad4 2
+src/app/users/BanUserDialog.test.tsx
+  s_4836705a541c57::t_c28ad07ec49edd 22,24,40,45,50
+  s_4836705a541c57::t_6d96a11b202877 1-21,26-34,38-39,41-44,46-49,51-53
+  s_4836705a541c57::t_d365a7ee818aa0 35-37
+  s_4836705a541c57::t_0076348dc2f89a 23,25
+src/components/layout/user-menu.tsx
+  s_4836705a541c57::t_cd11f945ead307 106-108
+  s_4836705a541c57::t_d656181cf5fbd8 22,27,45
+src/test/mocks.tsx
+  s_4836705a541c57::t_41976ac04eb0fa 13-15
+src/components/contexts/impersonation-context.tsx
+  s_4836705a541c57::t_be5e89af728a2a 5-6,11,28-31,35-36,38,40,49-50,52,54-57,73
+  s_4836705a541c57::t_1299afa9cfd6f4 7
+  s_4836705a541c57::t_d671ee8ac33ce1 8
+prisma/schema/session.prisma
+  s_4836705a541c57::t_be5e89af728a2a 8
+src/app/users/users-grid-columns.test.tsx
+  s_4836705a541c57::t_d782d308a5483e 47-48
+  s_4836705a541c57::t_6d96a11b202877 10-11,13
+prisma/migrations/20260903000000_add_better_auth_impersonation/migration.sql
+  s_4836705a541c57::t_be5e89af728a2a 1-8
+.github/workflows/ci.yaml
+  s_4836705a541c57::t_aebcfc699986bd 33-35
+src/app/users/UserActionsCell.test.tsx
+  s_4836705a541c57::t_6d96a11b202877 28-29,31,87,147-165
+  s_4836705a541c57::t_4077f4e878ff62 166
+src/hooks/use-is-mounted.ts
+  s_4836705a541c57::t_d656181cf5fbd8 1-13
+src/components/layout/header.tsx
+  s_4836705a541c57::t_d656181cf5fbd8 5,11,24,32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "5e9f5e25a9c9b2c5f0451856853aebf94334a177",
+  "prompts": {},
+  "sessions": {
+    "s_4836705a541c57": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a06aa0-6755-7ae3-86af-e1fa97d187c5",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Justin McLellan <justin.mclellan99@gmail.com>"
+    }
+  }
+}
