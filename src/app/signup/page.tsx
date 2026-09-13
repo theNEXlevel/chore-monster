@@ -34,12 +34,12 @@ export default function SignUpPage() {
       return;
     }
 
-    router.push('/dashboard');
+    router.push('/chores');
     router.refresh();
   };
 
   const handleGoogleSignIn = async () => {
-    await signIn.social({ provider: 'google', callbackURL: '/dashboard' });
+    await signIn.social({ provider: 'google', callbackURL: '/chores' });
   };
 
   return (

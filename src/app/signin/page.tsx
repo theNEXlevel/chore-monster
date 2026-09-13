@@ -40,7 +40,7 @@ export default function SignInPage() {
       const { error } = await signIn.passkey({ autoFill: true });
       if (error || cancelled) return;
 
-      router.push('/dashboard');
+      router.push('/chores');
       router.refresh();
     };
 
@@ -67,12 +67,12 @@ export default function SignInPage() {
       return;
     }
 
-    router.push('/dashboard');
+    router.push('/chores');
     router.refresh();
   };
 
   const handleGoogleSignIn = async () => {
-    await signIn.social({ provider: 'google', callbackURL: '/dashboard' });
+    await signIn.social({ provider: 'google', callbackURL: '/chores' });
   };
 
   const handlePasskeySignIn = async () => {
@@ -87,7 +87,7 @@ export default function SignInPage() {
       return;
     }
 
-    router.push('/dashboard');
+    router.push('/chores');
     router.refresh();
   };
 

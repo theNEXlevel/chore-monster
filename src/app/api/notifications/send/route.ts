@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
       title: title || 'Chore Monster Notification',
       body: body || 'You have a new notification!',
       data: {
-        url: '/dashboard',
+        url: '/chores',
         timestamp: Date.now(),
       },
     });

@@ -1,13 +1,13 @@
 import { getSession } from '@/lib/auth';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
-  title: 'Dashboard',
-  description: 'Your dashboard',
+  title: 'Chores',
+  description: 'Manage your chores',
 };
 
-export default async function DashboardPage() {
+export default async function ChoresPage() {
   const session = await getSession();
 
   if (!session?.user) {
@@ -16,8 +16,8 @@ export default async function DashboardPage() {
 
   return (
     <div className='px-4 py-8'>
-      <h1 className='mb-4 text-2xl font-bold'>Dashboard</h1>
-      <p>This is your dashboard landing page!</p>
+      <h1 className='mb-4 text-2xl font-bold'>Chores</h1>
+      <p>This is your chores page!</p>
     </div>
   );
 }

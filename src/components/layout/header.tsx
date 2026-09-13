@@ -23,10 +23,26 @@ export function Header() {
         </Link>
         {isMounted && data ? (
           <Link
-            href='/dashboard'
+            href='/chores'
             className='hover:text-primary text-sm font-medium'
           >
-            Dashboard
+            Chores
+          </Link>
+        ) : null}
+        {isMounted && data ? (
+          <Link
+            href='/money'
+            className='hover:text-primary text-sm font-medium'
+          >
+            Money
+          </Link>
+        ) : null}
+        {isMounted && data ? (
+          <Link
+            href='/gimme'
+            className='hover:text-primary text-sm font-medium'
+          >
+            Gimme
           </Link>
         ) : null}
         {isMounted && data?.user.role === 'ADMIN' ? (

@@ -53,10 +53,10 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
     shortcuts: [
       {
-        name: 'Dashboard',
-        short_name: 'Dashboard',
-        description: 'Go to the dashboard',
-        url: '/dashboard',
+        name: 'Chores',
+        short_name: 'Chores',
+        description: 'Manage chores',
+        url: '/chores',
         icons: [{ src: '/android-chrome-192x192.png', sizes: '192x192' }],
       },
       {
