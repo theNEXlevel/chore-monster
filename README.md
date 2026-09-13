@@ -7,7 +7,6 @@ Chore Monster is a C4G CS-6150 project for managing household chores with a webs
 - Authentication with email/password and Google (2 test accounts provided)
 - CI/CD which will deploy the application and DB to the [c4g.dev](https://c4g.dev) server using your applications sub-domain.
 - A user management page for `ADMIN` users. Base roles are `ADMIN` and `STAFF`.
-- Project specific deliverable pages to quickly update as we progress through the course. Found by clicking the `Team` link in the footer of the application.
 - More to come as we add common features we find useful across applications. We welcome student pull requests to add features!
 
   Feedback to improve Chore Monster or this README is most welcome!
