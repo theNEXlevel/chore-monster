@@ -1,0 +1,37 @@
+src/app/manage-kids/child-actions-menu.tsx
+  s_6318b587511969::t_2977f0c41a7a2e 4-12,15,18,22,25-27,30,34,37-71,76-105
+src/app/accept-invite/[token]/page.tsx
+  s_6318b587511969::t_01b85c8843ec54 19
+src/app/manage-kids/page.tsx
+  s_6318b587511969::t_2977f0c41a7a2e 6,62,64-68,70-74
+src/lib/child-invitations.ts
+  s_6318b587511969::t_2977f0c41a7a2e 1-33,35-50
+  s_6318b587511969::t_4c65509691f08a 34
+src/app/api/child-invites/[childId]/resend/route.ts
+  s_6318b587511969::t_2977f0c41a7a2e 1-6,9-64,78-82,87-94,103-135
+  s_6318b587511969::t_01b85c8843ec54 7-8,65-77,83-86,95-102
+src/app/api/child-invites/route.ts
+  s_6318b587511969::t_2977f0c41a7a2e 2,75-80
+  s_6318b587511969::t_01b85c8843ec54 8,37
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "44762638b15b590988cec5e1db54e79385976802",
+  "prompts": {},
+  "humans": {
+    "h_7b3da1fdda67bb": {
+      "author": "Justin McLellan <jmclellan@beast.>"
+    }
+  },
+  "sessions": {
+    "s_6318b587511969": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a09b75-e6f7-7601-833e-99bbe875b133",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Justin McLellan <jmclellan@beast.>"
+    }
+  }
+}
