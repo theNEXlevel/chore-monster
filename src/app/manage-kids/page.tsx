@@ -24,18 +24,25 @@ export default async function ManageKidsPage() {
   const parent = await prisma.user.findUnique({
     where: { id: session.user.id },
     select: {
-      childLinks: {
+      parentLinks: {
         orderBy: { createdAt: 'asc' },
         select: {
           child: {
-            select: { id: true, name: true },
+            select: {
+              id: true,
+              name: true,
+              accounts: {
+                select: { id: true },
+                take: 1,
+              },
+            },
           },
         },
       },
     },
   });
 
-  const children = parent?.childLinks.map(({ child }) => child) ?? [];
+  const children = parent?.parentLinks.map(({ child }) => child) ?? [];
 
   return (
     <div className='px-4 py-8'>
@@ -52,7 +59,14 @@ export default async function ManageKidsPage() {
               key={child.id}
               className='flex flex-col justify-between gap-6 rounded-lg border p-5'
             >
-              <h2 className='text-lg font-semibold'>{child.name}</h2>
+              <div className='flex items-center justify-between gap-3'>
+                <h2 className='text-lg font-semibold'>{child.name}</h2>
+                {child.accounts.length === 0 && (
+                  <span className='bg-muted text-muted-foreground rounded-full px-2.5 py-0.5 text-xs font-medium'>
+                    Pending
+                  </span>
+                )}
+              </div>
               <ImpersonateChildButton
                 childId={child.id}
                 childName={child.name}
