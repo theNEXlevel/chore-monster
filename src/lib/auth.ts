@@ -8,7 +8,6 @@ import { admin, customSession } from 'better-auth/plugins';
 import { adminAc, userAc } from 'better-auth/plugins/admin/access';
 import { headers } from 'next/headers';
 
-type UserRole = User['role'];
 type UserType = User['userType'];
 
 /**
@@ -75,16 +74,17 @@ export const auth = betterAuth({
       rpName: 'Chore Monster',
     }),
     customSession(async ({ user, session }) => {
-      const dbUser = user as typeof user & {
-        role: UserRole;
-        userType: UserType;
-      };
+      const persistedUser = await prisma.user.findUnique({
+        where: { id: user.id },
+        select: { role: true, userType: true },
+      });
+
       return {
         session,
         user: {
           ...user,
-          role: dbUser.role ?? null,
-          userType: dbUser.userType,
+          role: persistedUser?.role ?? null,
+          userType: persistedUser?.userType ?? ('PARENT' as UserType),
         },
       };
     }),
