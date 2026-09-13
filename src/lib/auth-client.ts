@@ -7,10 +7,12 @@ import {
 } from 'better-auth/client/plugins';
 import { createAuthClient } from 'better-auth/react';
 import { adminAc, userAc } from 'better-auth/plugins/admin/access';
+import { parentImpersonationClient } from './parent-impersonation-client';
 
 export const authClient = createAuthClient({
   plugins: [
     inferAdditionalFields<typeof auth>(),
+    parentImpersonationClient(),
     adminClient({
       roles: {
         ADMIN: adminAc,

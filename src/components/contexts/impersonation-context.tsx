@@ -10,7 +10,7 @@ type ImpersonatedUser = Pick<User, 'id' | 'name' | 'email' | 'role' | 'image'>;
 interface ImpersonationContextType {
   impersonatedUser: ImpersonatedUser | null;
   isImpersonating: boolean;
-  startImpersonation: (_user: User) => Promise<void>;
+  startImpersonation: (_user: Pick<User, 'id'>) => Promise<void>;
   stopImpersonation: () => Promise<void>;
 }
 
@@ -30,11 +30,12 @@ export function ImpersonationProvider({
     ? (session.user as ImpersonatedUser)
     : null;
 
-  const startImpersonation = async (user: User) => {
+  const startImpersonation = async (user: Pick<User, 'id'>) => {
     try {
-      const { error } = await authClient.admin.impersonateUser({
-        userId: user.id,
-      });
+      const { error } =
+        session?.user.role === 'ADMIN'
+          ? await authClient.admin.impersonateUser({ userId: user.id })
+          : await authClient.parent.impersonateChild({ userId: user.id });
       if (error) throw new Error(error.message);
 
       await refetch();

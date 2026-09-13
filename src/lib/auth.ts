@@ -7,6 +7,7 @@ import { nextCookies } from 'better-auth/next-js';
 import { admin, customSession } from 'better-auth/plugins';
 import { adminAc, userAc } from 'better-auth/plugins/admin/access';
 import { headers } from 'next/headers';
+import { parentImpersonation } from './parent-impersonation';
 
 type UserType = User['userType'];
 
@@ -57,6 +58,7 @@ export const auth = betterAuth({
     },
   },
   plugins: [
+    parentImpersonation(),
     admin({
       defaultRole: 'STAFF',
       adminRoles: ['ADMIN'],
