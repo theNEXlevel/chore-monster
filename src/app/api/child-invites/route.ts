@@ -40,6 +40,16 @@ export async function POST(request: Request) {
 
   try {
     await prisma.$transaction(async (transaction) => {
+      const parentFamily = await transaction.familyMember.findFirst({
+        where: { userId: session.user.id },
+        select: { familyId: true },
+        orderBy: { createdAt: 'asc' },
+      });
+
+      if (!parentFamily) {
+        throw new Error('PARENT_FAMILY_NOT_FOUND');
+      }
+
       const existingUser = await transaction.user.findUnique({
         where: { email },
         select: { id: true },
@@ -57,11 +67,8 @@ export async function POST(request: Request) {
         },
       });
 
-      await transaction.parentChild.create({
-        data: {
-          parentId: session.user.id,
-          childId: child.id,
-        },
+      await transaction.familyMember.create({
+        data: { familyId: parentFamily.familyId, userId: child.id },
       });
 
       await transaction.verification.create({

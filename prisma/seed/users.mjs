@@ -1,4 +1,13 @@
 import { createId } from '@paralleldrive/cuid2';
+import { randomBytes } from 'node:crypto';
+
+const familyInviteAlphabet =
+  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+const generateFamilyInviteCode = () =>
+  Array.from(randomBytes(6), (byte) =>
+    familyInviteAlphabet.charAt(byte % familyInviteAlphabet.length)
+  ).join('');
 
 const USERS = [
   {
@@ -43,6 +52,13 @@ const seedUser = async (
           accountId: providerAccountId,
           scope:
             'https://www.googleapis.com/auth/userinfo.email openid https://www.googleapis.com/auth/userinfo.profile',
+        },
+      },
+      familyMemberships: {
+        create: {
+          family: {
+            create: { inviteCode: generateFamilyInviteCode() },
+          },
         },
       },
     },

@@ -7,6 +7,7 @@ import { nextCookies } from 'better-auth/next-js';
 import { admin, customSession } from 'better-auth/plugins';
 import { adminAc, userAc } from 'better-auth/plugins/admin/access';
 import { headers } from 'next/headers';
+import { createFamilyForUser } from './families';
 import { parentImpersonation } from './parent-impersonation';
 
 type UserType = User['userType'];
@@ -41,6 +42,15 @@ export const auth = betterAuth({
     accountLinking: {
       enabled: true,
       trustedProviders: ['google'],
+    },
+  },
+  databaseHooks: {
+    user: {
+      create: {
+        after: async (user) => {
+          await createFamilyForUser(user.id);
+        },
+      },
     },
   },
   user: {

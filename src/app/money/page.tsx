@@ -15,7 +15,7 @@ export default async function MoneyPage() {
   }
 
   if (session.user.userType !== 'CHILD') {
-    redirect('/manage-kids');
+    redirect('/family');
   }
 
   return null;

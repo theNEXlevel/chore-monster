@@ -26,15 +26,13 @@ export async function POST(
 
   try {
     await prisma.$transaction(async (transaction) => {
-      const link = await transaction.parentChild.findUnique({
+      const link = await transaction.familyMember.findFirst({
         where: {
-          parentId_childId: {
-            parentId: session.user.id,
-            childId,
-          },
+          userId: childId,
+          family: { members: { some: { userId: session.user.id } } },
         },
         select: {
-          child: {
+          user: {
             select: {
               id: true,
               name: true,
@@ -46,18 +44,18 @@ export async function POST(
         },
       });
 
-      if (!link || link.child.userType !== 'CHILD') {
+      if (!link || link.user.userType !== 'CHILD') {
         throw new Error('CHILD_NOT_FOUND');
       }
 
-      if (link.child.accounts.length > 0) {
+      if (link.user.accounts.length > 0) {
         throw new Error('CHILD_ALREADY_ACTIVE');
       }
 
       const currentInvite = await transaction.verification.findFirst({
         where: {
           identifier: { startsWith: invitePrefix },
-          value: link.child.id,
+          value: link.user.id,
           expiresAt: { gt: new Date() },
         },
         orderBy: { createdAt: 'desc' },
@@ -67,7 +65,7 @@ export async function POST(
         : await transaction.verification.findFirst({
             where: {
               identifier: { startsWith: legacyInvitePrefix },
-              value: link.child.id,
+              value: link.user.id,
               expiresAt: { gt: new Date() },
             },
             orderBy: { createdAt: 'desc' },
@@ -84,13 +82,13 @@ export async function POST(
               { identifier: { startsWith: invitePrefix } },
               { identifier: { startsWith: legacyInvitePrefix } },
             ],
-            value: link.child.id,
+            value: link.user.id,
           },
         });
         await transaction.verification.create({
           data: {
             identifier: `${invitePrefix}${inviteToken}`,
-            value: link.child.id,
+            value: link.user.id,
             expiresAt: new Date(Date.now() + inviteLifetime),
           },
         });
@@ -98,15 +96,15 @@ export async function POST(
         await transaction.verification.create({
           data: {
             identifier: `${invitePrefix}${inviteToken}`,
-            value: link.child.id,
+            value: link.user.id,
             expiresAt: legacyInvite.expiresAt,
           },
         });
       }
 
       await sendChildInvitation({
-        childName: link.child.name,
-        email: link.child.email,
+        childName: link.user.name,
+        email: link.user.email,
         inviteToken,
         origin,
         parentName: session.user.name,

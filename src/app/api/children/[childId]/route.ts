@@ -35,15 +35,13 @@ export async function PATCH(
 
   try {
     const updatedChild = await prisma.$transaction(async (transaction) => {
-      const link = await transaction.parentChild.findUnique({
+      const link = await transaction.familyMember.findFirst({
         where: {
-          parentId_childId: {
-            parentId: session.user.id,
-            childId,
-          },
+          userId: childId,
+          family: { members: { some: { userId: session.user.id } } },
         },
         select: {
-          child: {
+          user: {
             select: {
               id: true,
               email: true,
@@ -54,7 +52,7 @@ export async function PATCH(
         },
       });
 
-      if (!link || link.child.userType !== 'CHILD') {
+      if (!link || link.user.userType !== 'CHILD') {
         throw new Error('CHILD_NOT_FOUND');
       }
 
@@ -72,7 +70,7 @@ export async function PATCH(
         select: { id: true, name: true, email: true },
       });
 
-      if (link.child.accounts.length === 0 && link.child.email !== email) {
+      if (link.user.accounts.length === 0 && link.user.email !== email) {
         await transaction.verification.deleteMany({
           where: {
             value: childId,

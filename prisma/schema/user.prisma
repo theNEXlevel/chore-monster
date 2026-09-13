@@ -1,20 +1,19 @@
 model User {
-  id               String    @id @default(cuid())
-  name             String
-  email            String    @unique
-  emailVerified    Boolean   @default(false)
-  image            String?
-  role             UserRole?
-  userType         UserType  @default(PARENT)
-  banned           Boolean   @default(false)
-  banReason        String?
-  banExpires       DateTime?
-  pushSubscription String?
-  accounts         Account[]
-  sessions         Session[]
-  passkeys         Passkey[]
-  parentLinks      ParentChild[] @relation("ParentLinks")
-  childLinks       ParentChild[] @relation("ChildLinks")
+  id                String         @id @default(cuid())
+  name              String
+  email             String         @unique
+  emailVerified     Boolean        @default(false)
+  image             String?
+  role              UserRole?
+  userType          UserType       @default(PARENT)
+  banned            Boolean        @default(false)
+  banReason         String?
+  banExpires        DateTime?
+  pushSubscription  String?
+  accounts          Account[]
+  sessions          Session[]
+  passkeys          Passkey[]
+  familyMemberships FamilyMember[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

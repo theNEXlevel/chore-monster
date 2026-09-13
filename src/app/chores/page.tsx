@@ -15,7 +15,7 @@ export default async function ChoresPage() {
   }
 
   if (session.user.userType !== 'CHILD') {
-    redirect('/manage-kids');
+    redirect('/family');
   }
 
   return (

@@ -64,12 +64,10 @@ export const parentImpersonation = () => ({
           throw APIError.fromStatus('NOT_FOUND');
         }
 
-        const link = await prisma.parentChild.findUnique({
+        const link = await prisma.familyMember.findFirst({
           where: {
-            parentId_childId: {
-              parentId: session.user.id,
-              childId: child.id,
-            },
+            userId: child.id,
+            family: { members: { some: { userId: session.user.id } } },
           },
         });
 

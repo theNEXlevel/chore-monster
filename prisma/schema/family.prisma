@@ -1,0 +1,22 @@
+model Family {
+  id         String         @id @default(uuid())
+  inviteCode String         @unique @db.VarChar(6)
+  members    FamilyMember[]
+  chores     Chore[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model FamilyMember {
+  familyId String
+  userId   String
+
+  family Family @relation(fields: [familyId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@id([familyId, userId])
+  @@index([userId])
+}

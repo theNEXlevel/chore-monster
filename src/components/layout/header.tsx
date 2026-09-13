@@ -47,10 +47,10 @@ export function Header() {
         ) : null}
         {isMounted && data?.user.userType === 'PARENT' ? (
           <Link
-            href='/manage-kids'
+            href='/family'
             className='hover:text-primary text-sm font-medium'
           >
-            Manage kids
+            Family
           </Link>
         ) : null}
         {isMounted && data?.user.role === 'ADMIN' ? (
