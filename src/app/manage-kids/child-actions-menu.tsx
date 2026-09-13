@@ -9,22 +9,26 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { useToast } from '@/hooks/use-toast';
-import { Eye, Mail, MoreHorizontal } from 'lucide-react';
+import { EditChildDialog } from './edit-child-dialog';
+import { Edit, Eye, Mail, MoreHorizontal } from 'lucide-react';
 import { useState } from 'react';
 
 export function ChildActionsMenu({
   childId,
   childName,
+  childEmail,
   isPending,
 }: {
   childId: string;
   childName: string;
+  childEmail: string;
   isPending: boolean;
 }) {
   const { startImpersonation } = useImpersonation();
   const { toast } = useToast();
   const [isImpersonating, setIsImpersonating] = useState(false);
   const [isResending, setIsResending] = useState(false);
+  const [isEditOpen, setIsEditOpen] = useState(false);
 
   const handleImpersonate = async () => {
     setIsImpersonating(true);
@@ -73,35 +77,51 @@ export function ChildActionsMenu({
   };
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
-          type='button'
-          variant='ghost'
-          size='icon'
-          aria-label={`Actions for ${childName}`}
-        >
-          <MoreHorizontal />
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align='end'>
-        <DropdownMenuItem
-          disabled={isImpersonating || isResending}
-          onSelect={() => void handleImpersonate()}
-        >
-          <Eye />
-          {isImpersonating ? 'Switching...' : `View as ${childName}`}
-        </DropdownMenuItem>
-        {isPending && (
+    <>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button
+            type='button'
+            variant='ghost'
+            size='icon'
+            aria-label={`Actions for ${childName}`}
+          >
+            <MoreHorizontal />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align='end'>
           <DropdownMenuItem
             disabled={isImpersonating || isResending}
-            onSelect={() => void handleResendInvite()}
+            onSelect={() => setIsEditOpen(true)}
           >
-            <Mail />
-            {isResending ? 'Resending...' : 'Resend invite'}
+            <Edit />
+            Edit child
           </DropdownMenuItem>
-        )}
-      </DropdownMenuContent>
-    </DropdownMenu>
+          <DropdownMenuItem
+            disabled={isImpersonating || isResending}
+            onSelect={() => void handleImpersonate()}
+          >
+            <Eye />
+            {isImpersonating ? 'Switching...' : `View as ${childName}`}
+          </DropdownMenuItem>
+          {isPending && (
+            <DropdownMenuItem
+              disabled={isImpersonating || isResending}
+              onSelect={() => void handleResendInvite()}
+            >
+              <Mail />
+              {isResending ? 'Resending...' : 'Resend invite'}
+            </DropdownMenuItem>
+          )}
+        </DropdownMenuContent>
+      </DropdownMenu>
+      <EditChildDialog
+        childId={childId}
+        initialEmail={childEmail}
+        initialName={childName}
+        isOpen={isEditOpen}
+        onOpenChange={setIsEditOpen}
+      />
+    </>
   );
 }

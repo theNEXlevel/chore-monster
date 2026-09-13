@@ -31,6 +31,7 @@ export default async function ManageKidsPage() {
             select: {
               id: true,
               name: true,
+              email: true,
               accounts: {
                 select: { id: true },
                 take: 1,
@@ -64,6 +65,7 @@ export default async function ManageKidsPage() {
                 <ChildActionsMenu
                   childId={child.id}
                   childName={child.name}
+                  childEmail={child.email}
                   isPending={child.accounts.length === 0}
                 />
               </div>
