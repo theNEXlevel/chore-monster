@@ -1,0 +1,19 @@
+src/lib/auth.ts
+  s_6318b587511969::t_1c9004f057252f 77-81,86-87
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "4d141101e0ca3797cbbb8e91baf16591658be8d1",
+  "prompts": {},
+  "sessions": {
+    "s_6318b587511969": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a09b75-e6f7-7601-833e-99bbe875b133",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Justin McLellan <jmclellan@beast.>"
+    }
+  }
+}
