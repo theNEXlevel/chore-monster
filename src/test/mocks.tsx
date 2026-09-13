@@ -29,6 +29,7 @@ export const createMockSession = (overrides?: Partial<Session>): Session => ({
     emailVerified: false,
     image: null,
     role: 'ADMIN',
+    userType: 'PARENT',
     createdAt: new Date('2024-01-01'),
     updatedAt: new Date('2024-01-01'),
   },

@@ -14,6 +14,10 @@ export default async function ChoresPage() {
     redirect('/');
   }
 
+  if (session.user.userType !== 'CHILD') {
+    redirect('/manage-kids');
+  }
+
   return (
     <div className='px-4 py-8'>
       <h1 className='mb-4 text-2xl font-bold'>Chores</h1>

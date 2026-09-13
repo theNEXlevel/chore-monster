@@ -9,6 +9,7 @@ import { adminAc, userAc } from 'better-auth/plugins/admin/access';
 import { headers } from 'next/headers';
 
 type UserRole = User['role'];
+type UserType = User['userType'];
 
 /**
  * Passkeys are scoped to this exact hostname, so each app sharing a parent
@@ -74,12 +75,16 @@ export const auth = betterAuth({
       rpName: 'Chore Monster',
     }),
     customSession(async ({ user, session }) => {
-      const dbUser = user as typeof user & { role: UserRole };
+      const dbUser = user as typeof user & {
+        role: UserRole;
+        userType: UserType;
+      };
       return {
         session,
         user: {
           ...user,
           role: dbUser.role ?? null,
+          userType: dbUser.userType,
         },
       };
     }),

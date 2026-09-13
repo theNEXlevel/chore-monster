@@ -21,7 +21,7 @@ export function Header() {
             height='32'
           />
         </Link>
-        {isMounted && data ? (
+        {isMounted && data?.user.userType === 'CHILD' ? (
           <Link
             href='/chores'
             className='hover:text-primary text-sm font-medium'
@@ -29,7 +29,7 @@ export function Header() {
             Chores
           </Link>
         ) : null}
-        {isMounted && data ? (
+        {isMounted && data?.user.userType === 'CHILD' ? (
           <Link
             href='/money'
             className='hover:text-primary text-sm font-medium'
@@ -37,12 +37,20 @@ export function Header() {
             Money
           </Link>
         ) : null}
-        {isMounted && data ? (
+        {isMounted && data?.user.userType === 'CHILD' ? (
           <Link
             href='/gimme'
             className='hover:text-primary text-sm font-medium'
           >
             Gimme
+          </Link>
+        ) : null}
+        {isMounted && data?.user.userType === 'PARENT' ? (
+          <Link
+            href='/manage-kids'
+            className='hover:text-primary text-sm font-medium'
+          >
+            Manage kids
           </Link>
         ) : null}
         {isMounted && data?.user.role === 'ADMIN' ? (
