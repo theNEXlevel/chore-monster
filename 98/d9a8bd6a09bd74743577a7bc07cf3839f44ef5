@@ -1,0 +1,25 @@
+src/components/ui/checkbox.tsx
+  s_6318b587511969::t_8408611b4ea589 1-28
+src/app/signup/page.tsx
+  s_6318b587511969::t_8408611b4ea589 4,104,107-109,111
+package.json
+  s_6318b587511969::t_a5a12e89c9d2c6 32
+pnpm-lock.yaml
+  s_6318b587511969::t_ae339956afc4c2 23-25,1114-1126,5732-5746
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "98d9a8bd6a09bd74743577a7bc07cf3839f44ef5",
+  "prompts": {},
+  "sessions": {
+    "s_6318b587511969": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a09b75-e6f7-7601-833e-99bbe875b133",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Justin McLellan <jmclellan@beast.>"
+    }
+  }
+}
