@@ -1,0 +1,37 @@
+src/components/contexts/impersonation-context.tsx
+  s_6318b587511969::t_6c1fc3e2ac0e5a 13,35-38
+  s_6318b587511969::t_a87fb66cb25634 33
+src/app/manage-kids/page.tsx
+  s_6318b587511969::t_770189b5fca127 2,5,23-64
+src/lib/parent-impersonation.ts
+  s_6318b587511969::t_217963a910edef 56-61,63
+  s_6318b587511969::t_59bfa1c2c01090 1-55,62,64-122
+src/lib/auth.ts
+  s_6318b587511969::t_59bfa1c2c01090 10,61
+src/lib/parent-impersonation-client.ts
+  s_6318b587511969::t_59bfa1c2c01090 1-18
+src/app/manage-kids/impersonate-child-button.tsx
+  s_6318b587511969::t_770189b5fca127 1-37
+package.json
+  s_6318b587511969::t_8e8f41691ed6c3 57-58
+src/lib/auth-client.ts
+  s_6318b587511969::t_59bfa1c2c01090 10,15
+pnpm-lock.yaml
+  s_6318b587511969::t_3fd416600f70ac 13,101-103,4891-4892,5034,5040,5044,5046,5048,5051,5053,5058,5060,5063,5065,5068,5070,5076,5078,5080,5082,5088,5090,7113-7119,7124,7129,7143,7150,7683-7684,9543,9545,9547
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "469fcb4ded4e9ebcdaa0d08f969a758c01f07a4d",
+  "prompts": {},
+  "sessions": {
+    "s_6318b587511969": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a09b75-e6f7-7601-833e-99bbe875b133",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Justin McLellan <jmclellan@beast.>"
+    }
+  }
+}
