@@ -1,0 +1,33 @@
+src/app/signup/page.tsx
+  s_6318b587511969::t_4a883d0ffdb8fd 19,26-31,48-56,102-119
+prisma/schema/user-type.prisma
+  s_6318b587511969::t_4a883d0ffdb8fd 1-4
+src/lib/auth.ts
+  s_6318b587511969::t_4a883d0ffdb8fd 52-56
+prisma/migrations/20260913000000_add_user_type/migration.sql
+  s_6318b587511969::t_4a883d0ffdb8fd 1-5
+prisma/schema/user.prisma
+  s_6318b587511969::t_4a883d0ffdb8fd 8
+prisma/seed/users.mjs
+  s_6318b587511969::t_ced2e02bcfc423 8,15,22,38
+src/lib/auth-client.ts
+  s_6318b587511969::t_d479e2cde184e1 4-7,13
+src/test/mocks.tsx
+  s_6318b587511969::t_d479e2cde184e1 13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "65aff1d2d2f5e5da516fd35daa23b411746e2cc3",
+  "prompts": {},
+  "sessions": {
+    "s_6318b587511969": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a09b75-e6f7-7601-833e-99bbe875b133",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Justin McLellan <jmclellan@beast.>"
+    }
+  }
+}
