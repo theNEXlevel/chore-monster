@@ -1,0 +1,31 @@
+src/app/manage-kids/child-actions-menu.tsx
+  s_6318b587511969::t_8b43adef3f3d0b 12-13,19,24,31,80-99,102,104-105,107-125
+src/app/manage-kids/edit-child-dialog.tsx
+  s_6318b587511969::t_ae20ced9a117b0 29
+  s_6318b587511969::t_8b43adef3f3d0b 1-28,30-119
+src/app/manage-kids/page.tsx
+  s_6318b587511969::t_8b43adef3f3d0b 34,68
+src/app/api/children/[childId]/route.ts
+  s_6318b587511969::t_8b43adef3f3d0b 1-109
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "169be04be29b535a77aa630ff8d59db825e23ee4",
+  "prompts": {},
+  "humans": {
+    "h_7b3da1fdda67bb": {
+      "author": "Justin McLellan <jmclellan@beast.>"
+    }
+  },
+  "sessions": {
+    "s_6318b587511969": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a09b75-e6f7-7601-833e-99bbe875b133",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Justin McLellan <jmclellan@beast.>"
+    }
+  }
+}
