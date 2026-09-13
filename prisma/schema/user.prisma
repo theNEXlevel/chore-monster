@@ -13,6 +13,8 @@ model User {
   accounts         Account[]
   sessions         Session[]
   passkeys         Passkey[]
+  parentLinks      ParentChild[] @relation("ParentLinks")
+  childLinks       ParentChild[] @relation("ChildLinks")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
