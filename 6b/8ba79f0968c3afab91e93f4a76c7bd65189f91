@@ -1,0 +1,35 @@
+public/sw.js
+  s_6318b587511969::t_a722de6b22cdbd 105
+src/app/signin/page.tsx
+  s_6318b587511969::t_2f21447f1b2cf0 43,70,75,90
+src/app/money/page.tsx
+  s_6318b587511969::t_2f21447f1b2cf0 1-18
+src/app/api/notifications/send/route.ts
+  s_6318b587511969::t_2f21447f1b2cf0 40
+src/app/chores/page.tsx
+  s_6318b587511969::t_2f21447f1b2cf0 2,6-7,10,19-20
+src/components/layout/header.tsx
+  s_6318b587511969::t_2f21447f1b2cf0 26,29-45
+src/app/signup/page.tsx
+  s_6318b587511969::t_2f21447f1b2cf0 37,42
+src/app/manifest.ts
+  s_6318b587511969::t_2f21447f1b2cf0 56-59
+src/app/gimme/page.tsx
+  s_6318b587511969::t_2f21447f1b2cf0 1-18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "6b8ba79f0968c3afab91e93f4a76c7bd65189f91",
+  "prompts": {},
+  "sessions": {
+    "s_6318b587511969": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a09b75-e6f7-7601-833e-99bbe875b133",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Justin McLellan <jmclellan@beast.>"
+    }
+  }
+}
