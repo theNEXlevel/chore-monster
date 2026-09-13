@@ -1,0 +1,25 @@
+src/components/layout/edit-profile-dialog.tsx
+  s_6318b587511969::t_d1aa6acbba3c60 3,31-32
+  s_6318b587511969::t_e34830fbf2aeba 30,33-37
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "88e590ddf600faa4f27ebb13c107b779a189495e",
+  "prompts": {},
+  "humans": {
+    "h_7b3da1fdda67bb": {
+      "author": "Justin McLellan <jmclellan@beast.>"
+    }
+  },
+  "sessions": {
+    "s_6318b587511969": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a09b75-e6f7-7601-833e-99bbe875b133",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Justin McLellan <jmclellan@beast.>"
+    }
+  }
+}
