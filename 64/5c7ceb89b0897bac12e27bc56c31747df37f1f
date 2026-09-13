@@ -1,0 +1,32 @@
+src/app/gimme/page.tsx
+  s_6318b587511969::t_6249dcf3ef4f0a 17-20
+src/lib/auth.ts
+  s_6318b587511969::t_6249dcf3ef4f0a 12,78-81,87
+src/app/money/page.tsx
+  s_6318b587511969::t_6249dcf3ef4f0a 17-20
+src/test/mocks.tsx
+  s_6318b587511969::t_6249dcf3ef4f0a 32
+src/app/chores/page.tsx
+  s_6318b587511969::t_6249dcf3ef4f0a 17-20
+src/components/layout/header.tsx
+  s_6318b587511969::t_6249dcf3ef4f0a 24,32,40,48-53
+  s_6318b587511969::t_4f43b043ac03ee 54-55
+src/app/manage-kids/page.tsx
+  s_6318b587511969::t_6249dcf3ef4f0a 1-22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "645c7ceb89b0897bac12e27bc56c31747df37f1f",
+  "prompts": {},
+  "sessions": {
+    "s_6318b587511969": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a09b75-e6f7-7601-833e-99bbe875b133",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Justin McLellan <jmclellan@beast.>"
+    }
+  }
+}
