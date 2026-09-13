@@ -28,7 +28,7 @@ export default async function ManageKidsPage() {
         orderBy: { createdAt: 'asc' },
         select: {
           child: {
-            select: { id: true, name: true, email: true },
+            select: { id: true, name: true },
           },
         },
       },
@@ -46,23 +46,20 @@ export default async function ManageKidsPage() {
       {children.length === 0 ? (
         <p>No child accounts are linked to your account yet.</p>
       ) : (
-        <ul className='space-y-3'>
+        <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
           {children.map((child) => (
-            <li
+            <article
               key={child.id}
-              className='flex items-center justify-between rounded-lg border p-4'
+              className='flex flex-col justify-between gap-6 rounded-lg border p-5'
             >
-              <div>
-                <p className='font-medium'>{child.name}</p>
-                <p className='text-muted-foreground text-sm'>{child.email}</p>
-              </div>
+              <h2 className='text-lg font-semibold'>{child.name}</h2>
               <ImpersonateChildButton
                 childId={child.id}
                 childName={child.name}
               />
-            </li>
+            </article>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );
