@@ -1,5 +1,6 @@
 model Family {
   id         String         @id @default(uuid())
+  name       String         @default("My Family")
   inviteCode String         @unique @db.VarChar(6)
   members    FamilyMember[]
   chores     Chore[]

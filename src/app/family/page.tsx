@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { AddChildDialog } from '../manage-kids/add-child-dialog';
 import { ChildActionsMenu } from '../manage-kids/child-actions-menu';
+import { FamilyNameEditor } from './family-name-editor';
 
 export const metadata: Metadata = {
   title: 'Family',
@@ -25,6 +26,7 @@ export default async function FamilyPage() {
     where: { members: { some: { userId: session.user.id } } },
     orderBy: { createdAt: 'asc' },
     select: {
+      name: true,
       members: {
         where: { user: { userType: 'CHILD' } },
         orderBy: { createdAt: 'asc' },
@@ -46,11 +48,12 @@ export default async function FamilyPage() {
   });
 
   const children = family?.members.map(({ user }) => user) ?? [];
+  const familyName = family?.name || 'My Family';
 
   return (
     <div className='px-4 py-8'>
       <div className='mb-4 flex items-center justify-between gap-4'>
-        <h1 className='text-2xl font-bold'>Family</h1>
+        <FamilyNameEditor initialName={familyName} />
         <AddChildDialog />
       </div>
       {children.length === 0 ? (

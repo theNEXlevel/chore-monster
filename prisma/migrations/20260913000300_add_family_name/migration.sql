@@ -1,0 +1,2 @@
+ALTER TABLE "Family"
+ADD COLUMN "name" TEXT NOT NULL DEFAULT 'My Family';
