@@ -21,13 +21,13 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Home | C4G Template',
+  title: 'Home | Chore Monster',
   description:
-    'A starter template for the computing 4 good projects leveraging Next.js and Prisma.',
+    'Chore Monster helps teams manage household chores with Next.js and Prisma.',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'C4G Template',
+    title: 'Chore Monster',
   },
   formatDetection: {
     telephone: false,

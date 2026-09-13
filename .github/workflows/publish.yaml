@@ -13,9 +13,9 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  # Must be lowercase — GHCR rejects mixed-case image names, and the org is "C4G".
+  # Must be lowercase — GHCR rejects mixed-case image names.
   # Keep in sync with the `image:` value in docker-compose.yml.
-  IMAGE: ghcr.io/c4g/template
+  IMAGE: ghcr.io/thenexlevel/chore-monster
 
 jobs:
   publish:
@@ -67,9 +67,9 @@ jobs:
         run: |
           docker compose -f docker-compose.yml --profile production -p smoke up -d --pull always
 
-          app=$(docker compose -p smoke ps -q --all template-app)
-          mig=$(docker compose -p smoke ps -q --all template-migrations)
-          bak=$(docker compose -p smoke ps -q --all template-backup)
+          app=$(docker compose -p smoke ps -q --all chore-monster-app)
+          mig=$(docker compose -p smoke ps -q --all chore-monster-migrations)
+          bak=$(docker compose -p smoke ps -q --all chore-monster-backup)
 
           for i in $(seq 1 60); do
             status=$(docker inspect -f '{{.State.Health.Status}}' "$app")
@@ -86,14 +86,14 @@ jobs:
             exit 1
           fi
 
-          docker compose -p smoke logs template-backup | grep -q "Backup complete" || {
+          docker compose -p smoke logs chore-monster-backup | grep -q "Backup complete" || {
             echo "::error::backup service did not report a completed dump"
-            docker compose -p smoke logs template-backup
+            docker compose -p smoke logs chore-monster-backup
             exit 1
           }
 
           # pg_restore --list proves the dump is a readable archive, not just a non-empty file.
-          docker compose -p smoke run --rm --no-deps --entrypoint /bin/sh template-backup \
+          docker compose -p smoke run --rm --no-deps --entrypoint /bin/sh chore-monster-backup \
             -euc 'f=$(ls -1t /backups/pre-migrate-*.dump | head -1); pg_restore --list "$f" >/dev/null && echo "dump verified: $f"' || {
             echo "::error::pre-migration dump failed pg_restore --list"
             exit 1

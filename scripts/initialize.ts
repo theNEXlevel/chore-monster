@@ -28,7 +28,7 @@ function checkPostgresReady(): boolean {
   try {
     const databaseUser = process.env.DATABASE_USER || 'postgres';
     execSync(
-      `docker compose exec -T template-db pg_isready -U ${databaseUser}`,
+      `docker compose exec -T chore-monster-db pg_isready -U ${databaseUser}`,
       {
         stdio: 'pipe',
       }

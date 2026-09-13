@@ -2,10 +2,10 @@ import type { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'C4G Template',
-    short_name: 'C4G',
+    name: 'Chore Monster',
+    short_name: 'Chore Monster',
     description:
-      'A starter template for the computing 4 good projects leveraging Next.js and Prisma.',
+      'Chore Monster helps teams manage household chores with Next.js and Prisma.',
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',

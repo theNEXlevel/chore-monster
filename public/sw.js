@@ -1,4 +1,4 @@
-const CACHE_NAME = 'c4g-template-v1';
+const CACHE_NAME = 'chore-monster-v1';
 
 // Install event - skip waiting to activate immediately
 self.addEventListener('install', () => {
@@ -54,8 +54,8 @@ self.addEventListener('activate', (event) => {
 // Push event
 self.addEventListener('push', (event) => {
   let notificationData = {
-    title: 'C4G Template Notification',
-    body: 'This is a push notification from C4G Template!',
+    title: 'Chore Monster Notification',
+    body: 'This is a push notification from Chore Monster!',
     data: {}
   };
 

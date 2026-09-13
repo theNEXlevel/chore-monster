@@ -12,7 +12,7 @@ type UserRole = User['role'];
 
 /**
  * Passkeys are scoped to this exact hostname, so each app sharing a parent
- * domain (template.c4g.dev vs. another-app.c4g.dev) keeps its own credentials.
+ * domain (chore-monster.c4g.dev vs. another-app.c4g.dev) keeps its own credentials.
  * Pointing this at the parent domain instead would let any sibling subdomain
  * assert them. Falls back to the plugin's own baseURL derivation when unset.
  */
@@ -66,7 +66,7 @@ export const auth = betterAuth({
     }),
     passkey({
       rpID: passkeyRpID,
-      rpName: 'Template',
+      rpName: 'Chore Monster',
     }),
     customSession(async ({ user, session }) => {
       const dbUser = user as typeof user & { role: UserRole };

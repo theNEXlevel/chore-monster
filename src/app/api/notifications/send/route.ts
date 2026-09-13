@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
     }
 
     const notificationPayload = JSON.stringify({
-      title: title || 'C4G Template Notification',
+      title: title || 'Chore Monster Notification',
       body: body || 'You have a new notification!',
       data: {
         url: '/dashboard',
