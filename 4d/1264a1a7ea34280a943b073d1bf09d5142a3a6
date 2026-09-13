@@ -1,0 +1,43 @@
+docker-compose.yml
+  s_6318b587511969::t_880a1d76a9e0d3 4,13,25-26,28,64,71,74,81-82,85,88,90,96-97,101,105,116,118,131,133
+package.json
+  s_6318b587511969::t_880a1d76a9e0d3 2
+src/app/manifest.ts
+  s_6318b587511969::t_880a1d76a9e0d3 5-6,8
+src/app/page.tsx
+  s_6318b587511969::t_880a1d76a9e0d3 5,8
+scripts/initialize.ts
+  s_6318b587511969::t_880a1d76a9e0d3 31
+.github/workflows/publish.yaml
+  s_6318b587511969::t_880a1d76a9e0d3 16,18,70-72,89,91,96
+src/app/layout.tsx
+  s_6318b587511969::t_880a1d76a9e0d3 24,26,30
+src/app/api/notifications/send/route.ts
+  s_6318b587511969::t_880a1d76a9e0d3 37
+.github/workflows/ci.yaml
+  s_6318b587511969::t_880a1d76a9e0d3 1,59,64,68,72,83,85-86
+README.md
+  s_6318b587511969::t_bdff0405cef8a8 1,5,13,27,33,36,78,80-81,107,128,138,143-144,154,158,165,175,179,206,261-262,283,287
+docker-compose.build.yml
+  s_6318b587511969::t_880a1d76a9e0d3 4
+public/sw.js
+  s_6318b587511969::t_880a1d76a9e0d3 1,57-58
+src/lib/auth.ts
+  s_6318b587511969::t_880a1d76a9e0d3 15,69
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "4d1264a1a7ea34280a943b073d1bf09d5142a3a6",
+  "prompts": {},
+  "sessions": {
+    "s_6318b587511969": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a09b75-e6f7-7601-833e-99bbe875b133",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Justin McLellan <jmclellan@beast.>"
+    }
+  }
+}
