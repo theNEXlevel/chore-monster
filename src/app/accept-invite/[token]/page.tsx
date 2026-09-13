@@ -16,7 +16,7 @@ export default async function AcceptInvitePage({
   const { token } = await params;
   const invitation = await prisma.verification.findFirst({
     where: {
-      identifier: `child-invite:${token}`,
+      identifier: `reset-password:${token}`,
       expiresAt: { gt: new Date() },
     },
   });

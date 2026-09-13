@@ -3,7 +3,7 @@ import { prisma } from '@/lib/prisma';
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { AddChildDialog } from './add-child-dialog';
-import { ImpersonateChildButton } from './impersonate-child-button';
+import { ChildActionsMenu } from './child-actions-menu';
 
 export const metadata: Metadata = {
   title: 'Manage kids',
@@ -59,18 +59,19 @@ export default async function ManageKidsPage() {
               key={child.id}
               className='flex flex-col justify-between gap-6 rounded-lg border p-5'
             >
-              <div className='flex items-center justify-between gap-3'>
+              <div className='flex items-start justify-between gap-3'>
                 <h2 className='text-lg font-semibold'>{child.name}</h2>
-                {child.accounts.length === 0 && (
-                  <span className='bg-muted text-muted-foreground rounded-full px-2.5 py-0.5 text-xs font-medium'>
-                    Pending
-                  </span>
-                )}
+                <ChildActionsMenu
+                  childId={child.id}
+                  childName={child.name}
+                  isPending={child.accounts.length === 0}
+                />
               </div>
-              <ImpersonateChildButton
-                childId={child.id}
-                childName={child.name}
-              />
+              {child.accounts.length === 0 && (
+                <span className='bg-muted text-muted-foreground w-fit rounded-full px-2.5 py-0.5 text-xs font-medium'>
+                  Pending
+                </span>
+              )}
             </article>
           ))}
         </div>

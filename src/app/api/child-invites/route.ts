@@ -1,31 +1,15 @@
 import { getSession } from '@/lib/auth';
+import { sendChildInvitation } from '@/lib/child-invitations';
 import { prisma } from '@/lib/prisma';
 import { randomBytes } from 'node:crypto';
 import { NextResponse } from 'next/server';
-import React from 'react';
-import { Resend } from 'resend';
 import { z } from 'zod';
-import { ChildInvitationTemplate } from '@/components/email-templates/child-invitation';
 
-const from = process.env.RESEND_FROM_EMAIL || 'Chore Monster <noreply@c4g.dev>';
+const invitePrefix = 'reset-password:';
 const childInviteBodySchema = z.object({
   name: z.string().trim().min(1).max(100),
   email: z.string().trim().email().max(320),
 });
-
-let resendClient: Resend | null = null;
-
-function getResendClient() {
-  if (!resendClient) {
-    const apiKey = process.env.RESEND_API_KEY;
-    if (!apiKey) {
-      throw new Error('RESEND_API_KEY is not configured');
-    }
-    resendClient = new Resend(apiKey);
-  }
-
-  return resendClient;
-}
 
 export async function POST(request: Request) {
   const session = await getSession();
@@ -50,14 +34,11 @@ export async function POST(request: Request) {
   const name = parsedBody.data.name;
   const email = parsedBody.data.email.toLowerCase();
   const token = randomBytes(32).toString('hex');
-  const identifier = `child-invite:${token}`;
+  const identifier = `${invitePrefix}${token}`;
   const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
   const origin = process.env.BETTER_AUTH_URL || new URL(request.url).origin;
-  const inviteUrl = new URL(`/accept-invite/${token}`, origin).toString();
 
   try {
-    const resend = getResendClient();
-
     await prisma.$transaction(async (transaction) => {
       const existingUser = await transaction.user.findUnique({
         where: { email },
@@ -91,20 +72,13 @@ export async function POST(request: Request) {
         },
       });
 
-      const { error } = await resend.emails.send({
-        from,
-        to: [email],
-        subject: `${session.user.name} invited you to Chore Monster`,
-        react: React.createElement(ChildInvitationTemplate, {
-          childName: name,
-          parentName: session.user.name,
-          inviteUrl,
-        }),
+      await sendChildInvitation({
+        childName: name,
+        email,
+        inviteToken: token,
+        origin,
+        parentName: session.user.name,
       });
-
-      if (error) {
-        throw new Error(error.message || 'Unable to send invitation email');
-      }
     });
 
     return NextResponse.json({ message: 'Child invitation sent' });
