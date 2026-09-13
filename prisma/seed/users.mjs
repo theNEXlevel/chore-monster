@@ -5,19 +5,21 @@ const USERS = [
     email: 'c4gdevad@gmail.com',
     userName: 'C4G Admin',
     role: 'ADMIN',
+    userType: 'PARENT',
     providerAccountId: '102858545601971723113',
   },
   {
     email: 'c4gdevstaff@gmail.com',
     userName: 'C4G Staff',
     role: 'STAFF',
+    userType: 'PARENT',
     providerAccountId: '116868783453066553710',
   },
 ];
 
 const seedUser = async (
   prisma,
-  { email, providerAccountId, role, userName }
+  { email, providerAccountId, role, userType, userName }
 ) => {
   const hasUser = await prisma.user.findUnique({
     where: { email },
@@ -33,6 +35,7 @@ const seedUser = async (
       email,
       emailVerified: true,
       role,
+      userType,
       accounts: {
         create: {
           id: createId(),

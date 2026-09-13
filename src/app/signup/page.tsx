@@ -16,13 +16,19 @@ export default function SignUpPage() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isParentOrGuardian, setIsParentOrGuardian] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
-    const { error } = await signUp.email({ name, email, password });
+    const { error } = await signUp.email({
+      name,
+      email,
+      password,
+      userType: 'PARENT',
+    });
 
     if (error) {
       toast({
@@ -39,6 +45,15 @@ export default function SignUpPage() {
   };
 
   const handleGoogleSignIn = async () => {
+    if (!isParentOrGuardian) {
+      toast({
+        title: 'Confirmation required',
+        description: 'Confirm that you are a parent or guardian to continue.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
     await signIn.social({ provider: 'google', callbackURL: '/chores' });
   };
 
@@ -84,7 +99,24 @@ export default function SignUpPage() {
               required
             />
           </div>
-          <Button type='submit' className='w-full' disabled={isLoading}>
+          <div className='flex items-start gap-2'>
+            <input
+              id='parent-or-guardian'
+              type='checkbox'
+              checked={isParentOrGuardian}
+              onChange={(e) => setIsParentOrGuardian(e.target.checked)}
+              required
+              className='mt-1 h-4 w-4 rounded border'
+            />
+            <Label htmlFor='parent-or-guardian' className='text-sm leading-5'>
+              I am a parent or guardian
+            </Label>
+          </div>
+          <Button
+            type='submit'
+            className='w-full'
+            disabled={isLoading || !isParentOrGuardian}
+          >
             {isLoading ? 'Creating account...' : 'Sign up'}
           </Button>
         </form>
