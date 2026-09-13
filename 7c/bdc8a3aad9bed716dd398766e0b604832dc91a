@@ -1,0 +1,32 @@
+src/app/family/family-name-editor.tsx
+  s_6318b587511969::t_5545f13dcd9ad5 1-128
+prisma/migrations/20260913000300_add_family_name/migration.sql
+  s_6318b587511969::t_5545f13dcd9ad5 1-2
+prisma/schema/family.prisma
+  s_6318b587511969::t_5545f13dcd9ad5 3
+src/app/family/page.tsx
+  s_6318b587511969::t_5545f13dcd9ad5 7,29,51,56
+src/app/api/family/route.ts
+  s_6318b587511969::t_5545f13dcd9ad5 1-45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "7cbdc8a3aad9bed716dd398766e0b604832dc91a",
+  "prompts": {},
+  "humans": {
+    "h_7b3da1fdda67bb": {
+      "author": "Justin McLellan <jmclellan@beast.>"
+    }
+  },
+  "sessions": {
+    "s_6318b587511969": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a09b75-e6f7-7601-833e-99bbe875b133",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Justin McLellan <jmclellan@beast.>"
+    }
+  }
+}
