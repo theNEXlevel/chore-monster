@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
 import { GoogleIcon } from '@/components/ui/google-icon';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -100,13 +101,14 @@ export default function SignUpPage() {
             />
           </div>
           <div className='flex items-start gap-2'>
-            <input
+            <Checkbox
               id='parent-or-guardian'
-              type='checkbox'
               checked={isParentOrGuardian}
-              onChange={(e) => setIsParentOrGuardian(e.target.checked)}
+              onCheckedChange={(checked) =>
+                setIsParentOrGuardian(checked === true)
+              }
               required
-              className='mt-1 h-4 w-4 rounded border'
+              className='mt-1'
             />
             <Label htmlFor='parent-or-guardian' className='text-sm leading-5'>
               I am a parent or guardian
