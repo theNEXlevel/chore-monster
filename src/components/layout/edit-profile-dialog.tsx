@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSession } from '@/lib/auth-client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -27,6 +27,14 @@ export function EditProfileDialog({
   const [email, setEmail] = useState(session?.user?.email || '');
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const currentUser = session?.user;
+
+  useEffect(() => {
+    if (!currentUser) return;
+
+    setName(currentUser.name || '');
+    setEmail(currentUser.email || '');
+  }, [currentUser]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
