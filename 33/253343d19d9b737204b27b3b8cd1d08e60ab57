@@ -1,0 +1,21 @@
+.env.example
+  s_6318b587511969::t_32525ebaa4b705 1-9,11-14,17-18,22-25
+.gitignore
+  s_6318b587511969::t_32525ebaa4b705 34
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "33253343d19d9b737204b27b3b8cd1d08e60ab57",
+  "prompts": {},
+  "sessions": {
+    "s_6318b587511969": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a09b75-e6f7-7601-833e-99bbe875b133",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Justin McLellan <jmclellan@beast.>"
+    }
+  }
+}
