@@ -2,6 +2,7 @@ import { getSession } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
+import { AddChildDialog } from './add-child-dialog';
 import { ImpersonateChildButton } from './impersonate-child-button';
 
 export const metadata: Metadata = {
@@ -38,7 +39,10 @@ export default async function ManageKidsPage() {
 
   return (
     <div className='px-4 py-8'>
-      <h1 className='mb-4 text-2xl font-bold'>Manage kids</h1>
+      <div className='mb-4 flex items-center justify-between gap-4'>
+        <h1 className='text-2xl font-bold'>Manage kids</h1>
+        <AddChildDialog />
+      </div>
       {children.length === 0 ? (
         <p>No child accounts are linked to your account yet.</p>
       ) : (
