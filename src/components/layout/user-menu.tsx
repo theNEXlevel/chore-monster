@@ -37,6 +37,7 @@ export function UserMenu() {
     try {
       await stopImpersonation();
       setIsOpen(false);
+      router.refresh();
     } catch (error) {
       console.error('Error stopping impersonation:', error);
     }
